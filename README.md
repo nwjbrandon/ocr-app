@@ -9,7 +9,7 @@ python3.7 -m virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
-- Go to the directory ywaste_create_presigned_post_lambda or ywaste_textract_ocr to run the file
+- Go to the directory ywaste_create_presigned_post_lambda or ywaste_textract_ocr_lambda to run the file
 
 ### Linting
 - Fix linting
@@ -23,13 +23,14 @@ pip install -r requirements.txt
 - Zip the lambda functions
 ```
 ./ywaste_create_presigned_post_lambda.sh
-./ywaste_textract_ocr.sh
+./ywaste_textract_ocr_lambda.sh
 ```
 - Get the deployment files from Devops
 - Apply terraform changes
 ```
 terraform apply
 ```
+- Ensure the files and folders .terraform/, terraform.tfstate, terraform.tfstate.backup are kept safely
 
 ### Best Practices
 - Supports English only
