@@ -20,14 +20,6 @@ resource "aws_iam_role" "ywaste_lambda_iam" {
       },
       "Effect": "Allow",
       "Sid": ""
-    },
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "s3.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
     }
   ]
 }
@@ -46,6 +38,8 @@ resource "aws_lambda_function" "ywaste_create_presigned_post_lambda" {
 
   environment {
     variables = {
+      ACCESS_KEY = "AKIAR5L3EOIDXHL26276"
+      SECRET_KEY = "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"
       REGION_NAME = "ap-southeast-1"
       BUCKET_NAME = "ywaste-receipts"
     }
