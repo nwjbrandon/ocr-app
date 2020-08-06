@@ -1,8 +1,6 @@
-import requests
 import base64
 
-import os
-import base64
+import requests
 
 image_file = "images/sample_receipt.jpg"
 
