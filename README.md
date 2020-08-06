@@ -30,6 +30,7 @@ pip install -r requirements.txt
 terraform apply
 ```
 - Ensure the files and folders .terraform/, terraform.tfstate, terraform.tfstate.backup are kept safely
+- If deployment scripts fail, try to run block by block.
 
 ### Best Practices
 - Supports English only
@@ -44,3 +45,4 @@ terraform apply
 - https://docs.aws.amazon.com/textract/latest/dg/textract-best-practices.html
 - https://ap-southeast-1.console.aws.amazon.com/textract/home?p=txt&cp=bn&ad=c&region=ap-southeast-1#/demo
 - https://itnext.io/create-a-highly-scalable-image-processing-service-on-aws-lambda-and-api-gateway-in-10-minutes-7cbb2893a479
+- https://www.base64-image.de/

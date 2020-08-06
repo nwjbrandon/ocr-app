@@ -1,5 +1,5 @@
-resource "aws_iam_role" "ywaste_lambda_iam" {
-  name = "ywaste_lambda_iam"
+resource "aws_iam_role" "ywaste_ocr_iam_role" {
+  name = "ywaste_ocr_iam_role"
 
   assume_role_policy = <<EOF
 {
@@ -36,7 +36,7 @@ resource "aws_api_gateway_rest_api" "ywaste_lambda_apis" {
 resource "aws_lambda_function" "ywaste_textract_ocr_lambda" {
   filename      = "src/main.zip"
   function_name = "ywaste_textract_ocr_lambda"
-  role          = aws_iam_role.ywaste_lambda_iam.arn
+  role          = aws_iam_role.ywaste_ocr_iam_role.arn
   handler       = "lambda_function.lambda_handler"
 
   source_code_hash = filebase64sha256("src/main.zip")
@@ -102,7 +102,8 @@ resource "aws_api_gateway_integration_response" "ywaste_textract_ocr_response_in
 # common
 resource "aws_api_gateway_deployment" "ywaste_apis_deployment" {
   depends_on  = [
-    aws_api_gateway_integration.ywaste_textract_ocr_integration
+    aws_api_gateway_integration.ywaste_textract_ocr_integration,
+    aws_api_gateway_integration_response.ywaste_textract_ocr_response_integration
   ]
   rest_api_id = aws_api_gateway_rest_api.ywaste_lambda_apis.id
   stage_name  = "v1"

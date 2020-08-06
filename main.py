@@ -10,11 +10,10 @@ encoded_string = ""
 with open(image_file, "rb") as f:
     encoded_string = base64.b64encode(f.read()).decode("utf-8")
 
-url = "https://r5f29ii4t3.execute-api.ap-southeast-1.amazonaws.com/v1/ocr-detection"
+url = "https://vecxv9wz88.execute-api.ap-southeast-1.amazonaws.com/v1/ocr-detection"
 data = {"name": "sample_receipt.jpg", "file": encoded_string, "provider": "ntuc"}
 
 response = requests.post(url, json=data)
 json_response = response.json()
 
-print(type(json_response))
 print(json_response)
