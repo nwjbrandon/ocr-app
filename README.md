@@ -9,7 +9,7 @@ python3.7 -m virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
-- Go to the directory ywaste_create_presigned_post_lambda or ywaste_textract_ocr_lambda to run the file
+- Go to the directory src to run/edit the file
 
 ### Linting
 - Fix linting
@@ -22,8 +22,7 @@ pip install -r requirements.txt
 - Install aws cli
 - Zip the lambda functions
 ```
-./ywaste_create_presigned_post_lambda.sh
-./ywaste_textract_ocr_lambda.sh
+./deploy.sh
 ```
 - Get the deployment files from Devops
 - Apply terraform changes
@@ -44,3 +43,4 @@ terraform apply
 - https://stackoverflow.com/questions/30670957/creating-a-lambda-function-in-aws-from-zip-file
 - https://docs.aws.amazon.com/textract/latest/dg/textract-best-practices.html
 - https://ap-southeast-1.console.aws.amazon.com/textract/home?p=txt&cp=bn&ad=c&region=ap-southeast-1#/demo
+- https://itnext.io/create-a-highly-scalable-image-processing-service-on-aws-lambda-and-api-gateway-in-10-minutes-7cbb2893a479

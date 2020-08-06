@@ -56,22 +56,3 @@ class FairPriceReceipt(BaseReceipt):
         if offset == -1:
             name_pos = -2
         return items[current_index + name_pos]["Text"]
-
-    def parse_blocks(self):
-        root_block = self.blocks[0]
-        relationships = root_block["Relationships"][0]["Ids"]
-
-        items = []
-        for block in self.blocks:
-            # remove items that are centralized on the receipt
-            left = block["Geometry"]["BoundingBox"]["Left"]
-            width = block["Geometry"]["BoundingBox"]["Width"]
-            center = left + width / 2
-            is_centered = center > 0.45 and center < 0.55
-
-            if block["Id"] not in relationships or is_centered:
-                continue
-
-            items.append(block)
-
-        return items
