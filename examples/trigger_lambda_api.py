@@ -12,7 +12,7 @@ def main(image_file):
         encoded_string = base64.b64encode(f.read()).decode("utf-8")
 
     url = "https://vecxv9wz88.execute-api.ap-southeast-1.amazonaws.com/v1/ocr-detection"
-    data = {"name": "sample_receipt.jpg", "file": encoded_string, "provider": "ntuc"}
+    data = {"name": "sample_receipt.jpg", "file": encoded_string}
 
     response = requests.post(url, json=data)
     json_response = response.json()
