@@ -32,9 +32,10 @@ terraform apply
 - Ensure the files and folders .terraform/, terraform.tfstate, terraform.tfstate.backup are kept safely
 - If deployment scripts fail, try to run block by block.
 
-### Trigger Lambda API
-- Refer to examples/trigger_lambda_api.py to call the lambda api. 
-- Ensure your image is in base64
+### Examples
+- Refer to the examples code on debugging and usage.
+- Ensure your image is base64 encoded when calling the api.
+- Example code are executed on the repository root folder
 
 ### Best Practices
 - Supports English only
